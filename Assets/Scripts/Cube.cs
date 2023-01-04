@@ -14,7 +14,7 @@ public class Cube : MonoBehaviour
     private float cubeLength, cubeHeight, cubeWidth;
 
     [SerializeField]
-    private int submeshCount = 6;
+    private int submeshCount = 10;
 
     [SerializeField]
     private int submeshIndex;

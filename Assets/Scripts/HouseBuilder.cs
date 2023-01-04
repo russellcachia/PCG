@@ -12,7 +12,7 @@ public class HouseBuilder : MonoBehaviour
     void Start()
     {
         CreateHouse();
-        this.transform.position = new Vector3(0, 3f, 0);
+        this.transform.position = position;
         this.transform.rotation = rotation;
     }
 
@@ -49,41 +49,102 @@ public class HouseBuilder : MonoBehaviour
         house.transform.parent = this.transform;
         house.AddComponent<Cube>();
         house.GetComponent<Cube>().SetCubeSize(1.5f, 3f, 1.5f);
-        house.GetComponent<Cube>().setSubMeshIndex(5);
+        house.GetComponent<Cube>().setSubMeshIndex(7);
 
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject road = new GameObject();
-            road.transform.parent = this.transform;
-            road.AddComponent<Cube>();
-            road.GetComponent<Cube>().SetCubeSize(roadLength,0.05f,1f);
-            road.GetComponent<Cube>().setSubMeshIndex(1);
+        //door1
+        GameObject door1 = new GameObject();
+        door1.name = "door1";
+        door1.transform.parent = house.transform;
+        door1.AddComponent<Cube>();
+        door1.GetComponent<Cube>().SetCubeSize(1.55f, 1f, 0.5f);
+        door1.GetComponent<Cube>().setSubMeshIndex(7);
+        door1.transform.position = new Vector3(0f, -2f, 0f);
+        door1.transform.rotation = Quaternion.Euler(0, 90f, 0);
 
-            GameObject pavement = new GameObject();
-            pavement.transform.parent = this.transform;
-            pavement.AddComponent<Cube>();
-            pavement.GetComponent<Cube>().SetCubeSize(roadLength,0.05f,0.5f);
-            pavement.GetComponent<Cube>().setSubMeshIndex(2);
+        //door2
+        GameObject door2 = new GameObject();
+        door2.name = "door2";
+        door2.transform.parent = house.transform;
+        door2.AddComponent<Cube>();
+        door2.GetComponent<Cube>().SetCubeSize(1.55f, 1f, 0.5f);
+        door2.GetComponent<Cube>().setSubMeshIndex(7);
+        door2.transform.position = new Vector3(0f, -2f, 0f);
 
-            switch(i)
-            {
-                case 0:
-                    road.name = "right_lane";
-                    road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, 1.1f);
-                    pavement.name = "pav_right";
-                    pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, 2.6f);
-                break;
-                case 1:
-                    road.name = "left_lane";
-                    road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
-                    road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, -1.1f);
+        //window1
+        GameObject window1 = new GameObject();
+        window1.name = "window1";
+        window1.transform.parent = house.transform;
+        window1.AddComponent<Cube>();
+        window1.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window1.GetComponent<Cube>().setSubMeshIndex(7);
+        window1.transform.position = new Vector3(0f, 2.2f, 0.8f);
 
-                    pavement.name = "pav_left";
-                    pavement.GetComponent<Cube>().SetCubeSize(4.75f,0.05f,0.5f);
-                    pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, -2.6f);
-                break;
-            }
-        }
+        //window2
+        GameObject window2 = new GameObject();
+        window2.name = "window2";
+        window2.transform.parent = house.transform;
+        window2.AddComponent<Cube>();
+        window2.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window2.GetComponent<Cube>().setSubMeshIndex(7);
+        window2.transform.position = new Vector3(0f, 2.2f, -0.8f);
+
+        //window3
+        GameObject window3 = new GameObject();
+        window3.name = "window3";
+        window3.transform.parent = house.transform;
+        window3.AddComponent<Cube>();
+        window3.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window3.GetComponent<Cube>().setSubMeshIndex(7);
+        window3.transform.position = new Vector3(0f, 0.8f, 0.8f);
+
+        //window4
+        GameObject window4 = new GameObject();
+        window4.name = "window4";
+        window4.transform.parent = house.transform;
+        window4.AddComponent<Cube>();
+        window4.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window4.GetComponent<Cube>().setSubMeshIndex(7);
+        window4.transform.position = new Vector3(0f, 0.8f, -0.8f);
+
+        //window5
+        GameObject window5 = new GameObject();
+        window5.name = "window5";
+        window5.transform.parent = house.transform;
+        window5.AddComponent<Cube>();
+        window5.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window5.GetComponent<Cube>().setSubMeshIndex(7);
+        window5.transform.position = new Vector3(-0.8f, 2.2f, 0f);
+        window5.transform.rotation = Quaternion.Euler(0, 90f, 0);
+
+        //window6
+        GameObject window6 = new GameObject();
+        window6.name = "window6";
+        window6.transform.parent = house.transform;
+        window6.AddComponent<Cube>();
+        window6.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window6.GetComponent<Cube>().setSubMeshIndex(7);
+        window6.transform.position = new Vector3(0.8f, 2.2f, 0f);
+        window6.transform.rotation = Quaternion.Euler(0, 90f, 0);
+
+        //window7
+        GameObject window7 = new GameObject();
+        window7.name = "window7";
+        window7.transform.parent = house.transform;
+        window7.AddComponent<Cube>();
+        window7.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window7.GetComponent<Cube>().setSubMeshIndex(7);
+        window7.transform.position = new Vector3(-0.8f, 0.8f, 0f);
+        window7.transform.rotation = Quaternion.Euler(0, 90f, 0);
+
+        //window8
+        GameObject window8 = new GameObject();
+        window8.name = "window8";
+        window8.transform.parent = house.transform;
+        window8.AddComponent<Cube>();
+        window8.GetComponent<Cube>().SetCubeSize(1.55f, 0.5f, 0.5f);
+        window8.GetComponent<Cube>().setSubMeshIndex(7);
+        window8.transform.position = new Vector3(0.8f, 0.8f, 0f);
+        window8.transform.rotation = Quaternion.Euler(0, 90f, 0);
     }
 }
 
