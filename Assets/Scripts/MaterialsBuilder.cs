@@ -20,10 +20,31 @@ public class MaterialsBuilder
         Material grayMaterial = new Material(Shader.Find("Specular"));
         grayMaterial.color = Color.gray;
 
+        //index 3
+        Material blueMaterial = new Material(Shader.Find("Specular"));
+        blueMaterial.color = Color.blue;
+
+        //index 4
+        Material greenMaterial = new Material(Shader.Find("Specular"));
+        greenMaterial.color = Color.green;
+
+        //index 5
+        Material yellowMaterial = new Material(Shader.Find("Specular"));
+        yellowMaterial.color = Color.yellow;
+
+        //index 6
+        Material redMaterial = new Material(Shader.Find("Specular"));
+        redMaterial.color = Color.red;
+
+
 
         materialsList.Add(whiteMaterial);
         materialsList.Add(blackMaterial);
         materialsList.Add(grayMaterial);
+        materialsList.Add(blueMaterial);
+        materialsList.Add(greenMaterial);
+        materialsList.Add(yellowMaterial);
+        materialsList.Add(redMaterial);
     }
 
     public List<Material> MaterialsList(){

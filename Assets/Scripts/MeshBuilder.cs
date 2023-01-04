@@ -15,7 +15,8 @@ public class MeshBuilder
     private List<int>[] submeshIndices = new List<int>[] {}; // array of submesh indices
 
 
-    public MeshBuilder(int submeshCount){
+    public MeshBuilder(int submeshCount)
+    {
 
         submeshIndices = new List<int>[submeshCount];
 
@@ -24,14 +25,16 @@ public class MeshBuilder
         }
     }
 
-    public void TriangleBuilder(Vector3 p0, Vector3 p1, Vector3 p2, int submesh){
+    public void TriangleBuilder(Vector3 p0, Vector3 p1, Vector3 p2, int submesh)
+    {
         
         Vector3 normal = Vector3.Cross(p1 - p0, p2 - p0).normalized;
         TriangleBuilder(p0 , p1 , p2, normal, submesh);
 
     }
 
-    public void TriangleBuilder(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 normal, int submesh){
+    public void TriangleBuilder(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 normal, int submesh)
+    {
 
         int p0Index = vertices.Count;
         int p1Index = vertices.Count + 1;
@@ -59,7 +62,8 @@ public class MeshBuilder
     }
 
 
-    public Mesh CreateMesh(){
+    public Mesh CreateMesh()
+    {
         Mesh mesh = new Mesh();
 
             mesh.vertices = vertices.ToArray();
@@ -72,17 +76,14 @@ public class MeshBuilder
 
             mesh.subMeshCount = submeshIndices.Length;
 
-            for(int i = 0; i < submeshIndices.Length; i++){
-
+            for(int i = 0; i < submeshIndices.Length; i++)
+            {
                 if(submeshIndices[i].Count < 3){
                     mesh.SetTriangles(new int[3] {0,0,0}, i);
                 }else{
                     mesh.SetTriangles(submeshIndices[i].ToArray(),i);
                 }
             }
-
         return mesh;
     }
-
-
 }
