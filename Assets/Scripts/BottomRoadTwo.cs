@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopRoadOne : MonoBehaviour
+public class BottomRoadTwo : MonoBehaviour
 {
     private int roadLength = 10;
     private Vector3 position;
@@ -12,17 +12,19 @@ public class TopRoadOne : MonoBehaviour
     void Start()
     {
         CreateRoad();
-        this.transform.position = new Vector3(6.9f, 0, 0);
+        this.transform.position = new Vector3(-20.8f, 0, 0);
         this.transform.rotation = Quaternion.Euler(0, 90f, 0);
-
+        
+        /*
         //randomizing
         for (int i = 0; i < 2; i++)
         {
             GameObject house = new GameObject();
             house.name = "house " + i;
             house.AddComponent<HouseBuilder>();
-            house.GetComponent<HouseBuilder>().setPosition(new Vector3(11.5f, 3f, Random.Range(roadLength + i * 2, -roadLength + i * 2)));
+            house.GetComponent<HouseBuilder>().setPosition(new Vector3(-11.5f, 3f, Random.Range(roadLength + i, -roadLength + i)));
         }
+        */
     }
 
     // Update is called once per frame
@@ -78,17 +80,17 @@ public class TopRoadOne : MonoBehaviour
             {
                 case 0:
                     road.name = "right_lane";
+                    road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
                     road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, 1.1f);
                     pavement.name = "pav_right";
+                    pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
                     pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, 2.6f);
                 break;
                 case 1:
                     road.name = "left_lane";
-                    road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
                     road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, -1.1f);
 
                     pavement.name = "pav_left";
-                    pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
                     pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, -2.6f);
                 break;
             }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopRoadOne : MonoBehaviour
+public class TopRoadTwo : MonoBehaviour
 {
     private int roadLength = 10;
     private Vector3 position;
@@ -15,6 +15,7 @@ public class TopRoadOne : MonoBehaviour
         this.transform.position = new Vector3(6.9f, 0, 0);
         this.transform.rotation = Quaternion.Euler(0, 90f, 0);
 
+        /*
         //randomizing
         for (int i = 0; i < 2; i++)
         {
@@ -23,6 +24,7 @@ public class TopRoadOne : MonoBehaviour
             house.AddComponent<HouseBuilder>();
             house.GetComponent<HouseBuilder>().setPosition(new Vector3(11.5f, 3f, Random.Range(roadLength + i * 2, -roadLength + i * 2)));
         }
+        */
     }
 
     // Update is called once per frame
@@ -95,4 +97,3 @@ public class TopRoadOne : MonoBehaviour
         }
     }
 }
-

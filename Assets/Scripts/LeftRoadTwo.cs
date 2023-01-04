@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopRoadOne : MonoBehaviour
+public class LeftRoadTwo : MonoBehaviour
 {
     private int roadLength = 10;
     private Vector3 position;
@@ -12,17 +12,19 @@ public class TopRoadOne : MonoBehaviour
     void Start()
     {
         CreateRoad();
-        this.transform.position = new Vector3(6.9f, 0, 0);
-        this.transform.rotation = Quaternion.Euler(0, 90f, 0);
-
+        this.transform.position = new Vector3(0, 0, 6.9f);
+        this.transform.rotation = rotation;
+        
+        /*
         //randomizing
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             GameObject house = new GameObject();
             house.name = "house " + i;
             house.AddComponent<HouseBuilder>();
-            house.GetComponent<HouseBuilder>().setPosition(new Vector3(11.5f, 3f, Random.Range(roadLength + i * 2, -roadLength + i * 2)));
+            house.GetComponent<HouseBuilder>().setPosition(new Vector3(Random.Range(roadLength + i, -roadLength + i), 3f, 11.5f));
         }
+        */
     }
 
     // Update is called once per frame
@@ -88,7 +90,7 @@ public class TopRoadOne : MonoBehaviour
                     road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, -1.1f);
 
                     pavement.name = "pav_left";
-                    pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
+                    pavement.GetComponent<Cube>().SetCubeSize(4.75f,0.05f,0.5f);
                     pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, -2.6f);
                 break;
             }
