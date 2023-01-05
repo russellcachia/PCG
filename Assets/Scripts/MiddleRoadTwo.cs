@@ -14,17 +14,6 @@ public class MiddleRoadTwo : MonoBehaviour
         CreateRoad();
         this.transform.position = new Vector3(-6.9f, 0, 0);
         this.transform.rotation = Quaternion.Euler(0, 90f, 0);
-        
-        /*
-        //randomizing
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject house = new GameObject();
-            house.name = "house " + i;
-            house.AddComponent<HouseBuilder>();
-            house.GetComponent<HouseBuilder>().setPosition(new Vector3(-11.5f, 3f, Random.Range(roadLength + i, -roadLength + i)));
-        }
-        */
     }
 
     // Update is called once per frame
@@ -93,7 +82,7 @@ public class MiddleRoadTwo : MonoBehaviour
 
                     pavement.name = "pav_left";
                     pavement.GetComponent<Cube>().SetCubeSize(7f,0.05f,0.5f);
-                    pavement.transform.position = new Vector3(-2.5f, 0.05f, -2.6f);
+                    pavement.transform.position = new Vector3(-2.2f, 0.05f, -2.6f);
                 break;
             }
         }

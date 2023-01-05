@@ -15,16 +15,16 @@ public class LeftRoadOne : MonoBehaviour
         this.transform.position = new Vector3(0, 0, 6.9f);
         this.transform.rotation = rotation;
         
-        /*
+        
         //randomizing
         for (int i = 0; i < 1; i++)
         {
             GameObject house = new GameObject();
-            house.name = "house " + i;
+            house.name = "left_road_house " + (i + 1);
             house.AddComponent<HouseBuilder>();
             house.GetComponent<HouseBuilder>().setPosition(new Vector3(Random.Range(roadLength + i, -roadLength + i), 3f, 11.5f));
         }
-        */
+        
     }
 
     // Update is called once per frame

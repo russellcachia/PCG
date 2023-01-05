@@ -15,16 +15,15 @@ public class BottomRoadTwo : MonoBehaviour
         this.transform.position = new Vector3(-20.8f, 0, 0);
         this.transform.rotation = Quaternion.Euler(0, 90f, 0);
         
-        /*
+        
         //randomizing
         for (int i = 0; i < 2; i++)
         {
             GameObject house = new GameObject();
-            house.name = "house " + i;
+            house.name = "bottom_road_house " + (i + 1);
             house.AddComponent<HouseBuilder>();
-            house.GetComponent<HouseBuilder>().setPosition(new Vector3(-11.5f, 3f, Random.Range(roadLength + i, -roadLength + i)));
+            house.GetComponent<HouseBuilder>().setPosition(new Vector3(-25.4f, 3f, Random.Range(roadLength + i, -roadLength + i)));
         }
-        */
     }
 
     // Update is called once per frame
@@ -59,8 +58,9 @@ public class BottomRoadTwo : MonoBehaviour
         divider.name = "middle_line";
         divider.transform.parent = this.transform;
         divider.AddComponent<Cube>();
-        divider.GetComponent<Cube>().SetCubeSize(7f,0.05f,0.1f);
+        divider.GetComponent<Cube>().SetCubeSize(8.5f,0.05f,0.1f);
         divider.GetComponent<Cube>().setSubMeshIndex(0);
+        divider.transform.position = new Vector3(-1.5f, 0f, 0f);
 
         for (int i = 0; i < 2; i++)
         {
@@ -80,7 +80,7 @@ public class BottomRoadTwo : MonoBehaviour
             {
                 case 0:
                     road.name = "right_lane";
-                    road.GetComponent<Cube>().SetCubeSize(7.4f,0.05f,1f);
+                    road.GetComponent<Cube>().SetCubeSize(7.4f,road.transform.position.y,1f);
                     road.transform.position = new Vector3(-2.6f, 0.05f, 1.1f);
                     pavement.name = "pav_right";
                     pavement.GetComponent<Cube>().SetCubeSize(7.4f,0.05f,0.5f);

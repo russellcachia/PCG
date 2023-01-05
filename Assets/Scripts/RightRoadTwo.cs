@@ -15,16 +15,15 @@ public class RightRoadTwo : MonoBehaviour
         this.transform.position = new Vector3(-13.8f, 0, -6.9f);
         this.transform.rotation = rotation;
         
-        /*
+        
         //randomizing
         for (int i = 0; i < 2; i++)
         {
             GameObject house = new GameObject();
-            house.name = "house " + i;
+            house.name = "right_road_house " + (i + 1);
             house.AddComponent<HouseBuilder>();
-            house.GetComponent<HouseBuilder>().setPosition(new Vector3(Random.Range(roadLength + i, -roadLength + i), 3f, -11.5f));
+            house.GetComponent<HouseBuilder>().setPosition(new Vector3(Random.Range(-5f, -22f), 3f, -11.5f));
         }
-        */
     }
 
     // Update is called once per frame
@@ -80,8 +79,8 @@ public class RightRoadTwo : MonoBehaviour
             {
                 case 0:
                     road.name = "right_lane";
-                    road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
-                    road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, 1.1f);
+                    road.GetComponent<Cube>().SetCubeSize(6.85f,0.05f,1f);
+                    road.transform.position = new Vector3(-0.05f, road.transform.position.y, 1.1f);
                     pavement.name = "pav_right";
                     pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
                     pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, 2.6f);
