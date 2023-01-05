@@ -80,11 +80,11 @@ public class BottomRoadTwo : MonoBehaviour
             {
                 case 0:
                     road.name = "right_lane";
-                    road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
-                    road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, 1.1f);
+                    road.GetComponent<Cube>().SetCubeSize(7.4f,0.05f,1f);
+                    road.transform.position = new Vector3(-2.6f, 0.05f, 1.1f);
                     pavement.name = "pav_right";
-                    pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
-                    pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, 2.6f);
+                    pavement.GetComponent<Cube>().SetCubeSize(7.4f,0.05f,0.5f);
+                    pavement.transform.position = new Vector3(-2.6f, 0.05f, 2.6f);
                 break;
                 case 1:
                     road.name = "left_lane";

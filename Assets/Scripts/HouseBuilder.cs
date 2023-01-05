@@ -51,6 +51,15 @@ public class HouseBuilder : MonoBehaviour
         house.GetComponent<Cube>().SetCubeSize(1.5f, 3f, 1.5f);
         house.GetComponent<Cube>().setSubMeshIndex(7);
 
+        //roof
+        GameObject roof = new GameObject();
+        roof.name = "roof";
+        roof.transform.parent = house.transform;
+        roof.AddComponent<Cube>();
+        roof.GetComponent<Cube>().SetCubeSize(1.7f, 0.3f, 1.7f);
+        roof.GetComponent<Cube>().setSubMeshIndex(7);
+        roof.transform.position = new Vector3(0f, 3.2f, 0f);
+
         //door1
         GameObject door1 = new GameObject();
         door1.name = "door1";

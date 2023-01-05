@@ -83,7 +83,7 @@ public class RightRoadTwo : MonoBehaviour
                     road.GetComponent<Cube>().SetCubeSize(6.8f,0.05f,1f);
                     road.transform.position = new Vector3(road.transform.position.x, road.transform.position.y, 1.1f);
                     pavement.name = "pav_right";
-                    pavement.GetComponent<Cube>().SetCubeSize(4.75f,0.05f,0.5f);
+                    pavement.GetComponent<Cube>().SetCubeSize(4.8f,0.05f,0.5f);
                     pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, 2.6f);
                 break;
                 case 1:

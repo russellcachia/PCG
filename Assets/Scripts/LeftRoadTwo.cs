@@ -91,7 +91,7 @@ public class LeftRoadTwo : MonoBehaviour
 
                     pavement.name = "pav_left";
                     pavement.GetComponent<Cube>().SetCubeSize(4.75f,0.05f,0.5f);
-                    pavement.transform.position = new Vector3(road.transform.position.x, 0.05f, -2.6f);
+                    pavement.transform.position = new Vector3(-0.05f, 0.05f, -2.6f);
                 break;
             }
         }
