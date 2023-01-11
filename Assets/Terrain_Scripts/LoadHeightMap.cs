@@ -15,7 +15,7 @@ public class LoadHeightMap : MonoBehaviour
     private Vector3 heightMapScale = new Vector3(1, 1, 1);
 
     [SerializeField]
-    private bool loadHieghtMap = true;
+    private bool loadHeightMap = true;
 
     [SerializeField]
     private bool flattenTerrainOnExit = true;
@@ -29,10 +29,7 @@ public class LoadHeightMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //terrain = this.GetComponent<Terrain>();
-        //terrainData = Terrain.activeTerrain.terrainData;
-
-        if (loadHieghtMap)
+        if (Application.IsPlaying(gameObject) && loadHeightMap)
         {
             LoadHeightMapImage();
         }
@@ -40,9 +37,16 @@ public class LoadHeightMap : MonoBehaviour
 
     void LoadHeightMapImage()
     {
-        terrain = this.GetComponent<Terrain>();
-        terrainData = Terrain.activeTerrain.terrainData;
-
+        if (terrain == null)
+        {
+            terrain = this.GetComponent<Terrain>();
+        }
+        
+        if (terrainData == null)
+        {
+            terrainData = Terrain.activeTerrain.terrainData;
+        }
+        
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
         for (int width = 0; width < terrainData.heightmapResolution; width++)
@@ -73,6 +77,8 @@ public class LoadHeightMap : MonoBehaviour
     //This method is called in edit mode only
     void OnValidate()
     {
+        Debug.Log("OnValidate called!");
+
         if (flattenTerrainInEditMode)
         {
             FlattenTerrain();
@@ -84,6 +90,8 @@ public class LoadHeightMap : MonoBehaviour
 
     void OnDestroy()
     {
+        Debug.Log("OnDestroy called!");
+
         if (flattenTerrainOnExit)
         {
             FlattenTerrain();
