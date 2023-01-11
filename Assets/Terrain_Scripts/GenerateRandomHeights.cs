@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class LoadHeightMap : MonoBehaviour
+public class GenerateRandomHeights : MonoBehaviour
 {
     private Terrain terrain;
     private TerrainData terrainData;
 
     [SerializeField]
-    private Texture2D heightMapImage;
+    [Range(0f, 1f)]
+    private float minRandomHeightRange = 0f; //min is 0
 
     [SerializeField]
-    private Vector3 heightMapScale = new Vector3(1, 1, 1);
-
-    [Header("Play Mode")]
-    [SerializeField]
-    private bool loadHeightMap = true;
+    [Range(0f, 1f)]
+    private float maxRandomHeight = 0.1f; //max is 1
 
     [SerializeField]
-    private bool flattenTerrainOnExit = true;
+    private bool flattenTerrain = true;
 
-    [Header("Editor Mode")]
+    [Header("Perlin Noise")] 
     [SerializeField]
-    private bool loadHeightMapInEditMode = false;
+    private bool perlinNoise = false;
 
     [SerializeField]
-    private bool flattenTerrainInEditMode = false;
+    private float perlinNoiseWidthScale = 0.01f;
+
+    [SerializeField]
+    private float perlinNoiseHeightScale = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,39 +35,46 @@ public class LoadHeightMap : MonoBehaviour
         {
             terrain = this.GetComponent<Terrain>();
         }
-        
+
         if (terrainData == null)
         {
-            terrainData = Terrain.activeTerrain.terrainData;
-        }
+            terrainData = Terrain.activeTerrain.terrainData; 
+        } 
 
-        if (Application.IsPlaying(gameObject) && loadHeightMap)
-        {
-            LoadHeightMapImage();
-        }
+        GenerateHeights();
     }
 
-    void LoadHeightMapImage()
+    void GenerateHeights()
     {
-        
-        
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
         for (int width = 0; width < terrainData.heightmapResolution; width++)
         {
             for (int height = 0; height < terrainData.heightmapResolution; height++)
             {
-                heightMap[width,height] = heightMapImage.GetPixel((int)(width * heightMapScale.x), (int)(height * heightMapScale.z)).grayscale * 
-                heightMapScale.y;
+                heightMap[width,height] = Random.Range(minRandomHeightRange, maxRandomHeight);
+
+                /*
+                if (perlinNoise)
+                {
+                    heightMap[width, height] = Mathf.PerlinNoise(width * perlinNoiseWidthScale, height * perlinNoiseHeightScale);
+                }
+                else
+                {
+                    heightMap[width, height] = Random.Range(minRandomHeightRange, maxRandomHeight);
+                }
+                */
+
+                heightMap[width, height] = Random.Range(minRandomHeightRange, maxRandomHeight);
+                heightMap[width, height] += Mathf.PerlinNoise(width * perlinNoiseWidthScale, height * perlinNoiseHeightScale);
             }
         }
+
         terrainData.SetHeights(0, 0, heightMap);
     }
 
     void FlattenTerrain()
     {
-        
-         
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
         for (int width = 0; width < terrainData.heightmapResolution; width++)
@@ -80,31 +87,9 @@ public class LoadHeightMap : MonoBehaviour
         terrainData.SetHeights(0, 0, heightMap);
     }
 
-    //This method is called in edit mode only
-    void OnValidate()
-    {
-        if (terrain == null)
-        {
-            terrain = this.GetComponent<Terrain>();
-        }
-        
-        if (terrainData == null)
-        {
-            terrainData = Terrain.activeTerrain.terrainData;
-        }
-
-        if (flattenTerrainInEditMode)
-        {
-            FlattenTerrain();
-        }else if (loadHeightMapInEditMode)
-        {
-            LoadHeightMapImage();
-        }
-    }
-
     void OnDestroy()
-    { 
-        if (flattenTerrainOnExit)
+    {
+        if (flattenTerrain)
         {
             FlattenTerrain();
         }
