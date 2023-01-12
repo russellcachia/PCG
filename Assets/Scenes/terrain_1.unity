@@ -239,6 +239,32 @@ MonoBehaviour:
   perlinNoise: 1
   perlinNoiseWidthScale: 0.01
   perlinNoiseHeightScale: 0.01
+  terrainTextureData:
+  - terrainTexture: {fileID: 2800000, guid: e18ae12a8286a594bae0eb036ce9bc12, type: 3}
+    tileSize: {x: 20, y: 20}
+    minHeight: 0
+    maxHeight: 0.2
+  - terrainTexture: {fileID: 2800000, guid: d44cec25420524046b0137655ed7f307, type: 3}
+    tileSize: {x: 20, y: 20}
+    minHeight: 0.2
+    maxHeight: 0.5
+  - terrainTexture: {fileID: 2800000, guid: 7e35234e281d141418972228ee38415e, type: 3}
+    tileSize: {x: 20, y: 20}
+    minHeight: 0.5
+    maxHeight: 0.75
+  - terrainTexture: {fileID: 2800000, guid: ffa01093856b873448237de84289ee85, type: 3}
+    tileSize: {x: 20, y: 20}
+    minHeight: 0.75
+    maxHeight: 1
+  addTerrainTexture: 1
+  terrainTextureBlendOffset: 0.01
+  treeData:
+  - treeMesh: {fileID: 114418, guid: be878d9ea17907f4a8068678a5ce7908, type: 3}
+    minHeight: 0
+    maxHeight: 0.5
+  maxTrees: 2147483647
+  treeSpacing: 10
+  addTrees: 1
 --- !u!1 &1731399592
 GameObject:
   m_ObjectHideFlags: 0
