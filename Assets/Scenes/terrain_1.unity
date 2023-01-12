@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -260,18 +260,20 @@ MonoBehaviour:
   terrainTextureBlendOffset: 0.01
   treeData:
   - treeMesh: {fileID: 114418, guid: be878d9ea17907f4a8068678a5ce7908, type: 3}
-    minHeight: 0
-    maxHeight: 1
+    minHeight: 0.4
+    maxHeight: 0.6
   - treeMesh: {fileID: 114418, guid: 956bd2acf7aae244dac8fc20cf57858d, type: 3}
-    minHeight: 0
-    maxHeight: 1
+    minHeight: 0.6
+    maxHeight: 0.7
   - treeMesh: {fileID: 114418, guid: 9b8fc966f95ea9c4194dc091fc40b478, type: 3}
-    minHeight: 0
-    maxHeight: 1
+    minHeight: 0.7
+    maxHeight: 0.8
   maxTrees: 10000
   treeSpacing: 10
   addTrees: 1
   terrainLayerIndex: 8
+  water: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  waterHeight: 0.35
 --- !u!1 &1731399592
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,8 +444,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976490157}
-  m_LocalRotation: {x: -0.21223979, y: 0.6180747, z: -0.17818217, w: -0.7356555}
-  m_LocalPosition: {x: 1111.0564, y: 603.36926, z: 349.27676}
+  m_LocalRotation: {x: 0.10883358, y: -0.7047637, z: 0.11131723, w: 0.6921502}
+  m_LocalPosition: {x: 932.7793, y: 446.34207, z: 502.1873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
