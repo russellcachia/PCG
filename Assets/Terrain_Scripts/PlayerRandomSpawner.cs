@@ -18,8 +18,6 @@ public class PlayerRandomSpawner : MonoBehaviour
         path.GetComponent<BoxCollider>().size = new Vector3(1, 1, 200);
         path.transform.position = new Vector3(Random.Range(200, 500), 500, 500);
 
-        
-    
     }
 
     // Update is called once per frame

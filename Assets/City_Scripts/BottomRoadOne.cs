@@ -24,7 +24,6 @@ public class BottomRoadOne : MonoBehaviour
             house.AddComponent<HouseBuilder>();
             house.GetComponent<HouseBuilder>().setPosition(new Vector3(-11.5f, 3f, Random.Range(roadLength + i, -roadLength + i)));
         }
-        
     }
 
     // Update is called once per frame
