@@ -50,6 +50,8 @@ public class HouseBuilder : MonoBehaviour
         house.AddComponent<Cube>();
         house.GetComponent<Cube>().SetCubeSize(1.5f, 3f, 1.5f);
         house.GetComponent<Cube>().setSubMeshIndex(7);
+        house.AddComponent<BoxCollider>();
+        house.GetComponent<BoxCollider>().size = new Vector3(3f, 6f, 3f);
 
         //roof
         GameObject roof = new GameObject();

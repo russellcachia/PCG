@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PortalCity : MonoBehaviour
 {
     private Vector3 position;
     private Quaternion rotation;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +21,13 @@ public class PortalCity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag ("Player")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void CreatePortal()
@@ -27,8 +36,8 @@ public class PortalCity : MonoBehaviour
         portal.name = "portal";
         portal.transform.parent = this.transform;
         portal.AddComponent<Cube>();
-        portal.GetComponent<Cube>().SetCubeSize(1f,1f,1f);
+        portal.GetComponent<Cube>().SetCubeSize(0.7f,0.7f,0.7f);
         portal.GetComponent<Cube>().setSubMeshIndex(7);
-        portal.transform.position = new Vector3(0f, 1f, 0f);
+        portal.transform.position = new Vector3(0f, 0.7f, 0f);
     }
 }

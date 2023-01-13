@@ -12,17 +12,19 @@ public class PlayerRandomSpawner : MonoBehaviour
     void Start()
     {
         path = new GameObject();
+        path.name = "path";
         path.AddComponent<Cube>();
-        path.GetComponent<Cube>().SetCubeSize(1, 1, 200);
+        path.GetComponent<Cube>().SetCubeSize(2, 2, 400);
         path.AddComponent<BoxCollider>();
-        path.GetComponent<BoxCollider>().size = new Vector3(1, 1, 200);
-        path.transform.position = new Vector3(Random.Range(200, 500), 500, 500);
-
+        path.GetComponent<BoxCollider>().size = new Vector3(4, 4, 800);
+        path.transform.position = new Vector3(Random.Range(50, 900), 500, 500);
+        player.transform.position =  path.transform.position + new Vector3(0, 2, 0);
+        player.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        player.transform.position =  path.transform.position + new Vector3(0, 2, 0);
+
     }
 }
