@@ -419,6 +419,8 @@ MonoBehaviour:
   terrainLayerIndex: 8
   water: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
   waterHeight: 0.35
+  clouds: {fileID: 1000010237739742, guid: fe69c79d384eb4f4f944d4ec253d357a, type: 3}
+  cloudHeight: 0.8
 --- !u!1001 &1621073106
 PrefabInstance:
   m_ObjectHideFlags: 0
