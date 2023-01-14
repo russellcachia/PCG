@@ -16,6 +16,7 @@ public class playerSpawner : MonoBehaviour
     void SpawnPlayer()
     {
         streets = GameObject.FindGameObjectsWithTag("road");
+        //Debug.Log("Spawned on " + this.gameObject.name);
         GameObject spawnPos = streets[Random.Range(0, streets.Length)];
         player.transform.position = streets[Random.Range(0, streets.Length)].transform.position;
         player.SetActive(true);
