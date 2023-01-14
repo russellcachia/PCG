@@ -86,6 +86,13 @@ public class GenerateRandomHeights : MonoBehaviour
     [SerializeField]
     private float cloudHeight = 0.3f;
 
+    [Header("Rain")]
+    [SerializeField]
+    private GameObject rain;
+
+    [SerializeField]
+    private float rainHeight = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +112,7 @@ public class GenerateRandomHeights : MonoBehaviour
         AddTrees();
         AddWater();
         AddClouds();
+        AddRain();
     }
 
     void GenerateHeights()
@@ -300,6 +308,14 @@ public class GenerateRandomHeights : MonoBehaviour
         cloudsGameObject.name = "Clouds";
         cloudsGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, cloudHeight * terrainData.size.y, terrainData.size.y / 2);
         cloudsGameObject.transform.localScale = new Vector3(terrainData.size.x / 180, 1, terrainData.size.z / 180);
+    }
+
+    private void AddRain()
+    {
+        GameObject rainGameObject = Instantiate(rain, this.transform.position, this.transform.rotation);
+        rainGameObject.name = "Rain";
+        rainGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, rainHeight * terrainData.size.y, terrainData.size.z / 2);
+        rainGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
     }
 
     void OnDestroy()

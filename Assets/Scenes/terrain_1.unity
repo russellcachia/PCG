@@ -451,6 +451,8 @@ MonoBehaviour:
   waterHeight: 0.35
   clouds: {fileID: 1000010237739742, guid: fe69c79d384eb4f4f944d4ec253d357a, type: 3}
   cloudHeight: 0.65
+  rain: {fileID: 1750317307060666, guid: b51ab665c1c1eea41999ec5fb55022fa, type: 3}
+  rainHeight: 1
 --- !u!1001 &1621073106
 PrefabInstance:
   m_ObjectHideFlags: 0
